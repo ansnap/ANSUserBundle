@@ -6,16 +6,16 @@
 
 {% block content %}
 
-<h4>Вход на сайт</h4>
+    <h4>Вход на сайт</h4>
 
-{% for flashMessage in app.session.flashbag.get('success') %}
-<p>{{ flashMessage }}</p>
-{% endfor %}
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        <p>{{ flashMessage }}</p>
+    {% endfor %}
 
-{% if error %}
-<p>{{ error.message|trans }}</p>
-{% endif %}
+    {% if error %}
+        <p>{{ error.message|trans }}</p>
+    {% endif %}
 
-{{ login_form.view('', last_email) }}
+    {{ login_form.view('', last_email) }}
 
 {% endblock %}

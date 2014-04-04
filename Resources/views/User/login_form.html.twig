@@ -1,19 +1,19 @@
 {% macro view(form_class = '', last_email = '', redirect = false) %}
 
-<form action="{{ path('login_check') }}" method="post" class="{{ form_class }}">
-    <label for="email">Email</label>
-    <input type="text" id="email" name="_email" {% if last_email %}value="{{ last_email }}"{% endif %}>
+    <form action="{{ path('login_check') }}" method="post" class="{{ form_class }}">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="_email" {% if last_email %}value="{{ last_email }}"{% endif %}>
 
-    <label for="password">Пароль</label>
-    <input type="password" id="password" name="_password">
+        <label for="password">Пароль</label>
+        <input type="password" id="password" name="_password">
 
-    {% if redirect %}
-        {{ app.session.set('_security.main.target_path', app.request.uri) }}
-    {% endif %}
+        {% if redirect %}
+            {{ app.session.set('_security.main.target_path', app.request.uri) }}
+        {% endif %}
 
-    <button type="submit">Войти</button>
+        <button type="submit">Войти</button>
 
-    <a href="{{ path('restore') }}">Забыли пароль?</a>
-</form>
+        <a href="{{ path('restore') }}">Забыли пароль?</a>
+    </form>
 
 {% endmacro %}
