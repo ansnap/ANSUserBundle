@@ -134,7 +134,7 @@ class UserController extends Controller
 
                 $token->setUser($user);
 
-                $link = $this->generateUrl('restore_confirm', array('token' => $token->getCode()), true);
+                $link = $this->generateUrl('restore_confirm', array('code' => $token->getCode()), true);
 
                 $site_name = $this->container->getParameter('ans_user.site_name');
                 $site_email = $this->container->getParameter('ans_user.site_email');
