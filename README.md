@@ -78,6 +78,13 @@ ans_user:
 ``` yaml
 # app/config/config.yml
 
+doctrine:
+    ...
+    orm:
+        ...
+        resolve_target_entities:
+            ANS\UserBundle\Entity\User: Name\UserBundle\Entity\User
+
 ans_user:
     site_name: Name.ru
     site_email: info@name.ru
