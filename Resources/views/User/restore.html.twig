@@ -1,0 +1,15 @@
+{% extends 'ANSUserBundle::layout.html.twig' %}
+
+{% block title %}Восстановление пароля{% endblock %}
+
+{% block content %}
+
+<h4>Восстановление пароля</h4>
+
+{% if message is defined %}
+<p>На указанный email было отправлено письмо со ссылкой для создания нового пароля</p>
+{% else %}
+{{ form(form) }}
+{% endif %}
+
+{% endblock %}

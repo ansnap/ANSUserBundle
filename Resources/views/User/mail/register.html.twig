@@ -1,0 +1,7 @@
+{% extends 'ANSUserBundle::layout_mail.html.twig' %}
+
+{% block content %}
+{{ name }}, Ваш аккаунт на сайте {{ site_name }} был успешно создан!
+
+Для входа используйте данный пароль: {{ password }}
+{% endblock %}

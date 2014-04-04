@@ -1,0 +1,20 @@
+parameters:
+#    ans_user.example.class: ANS\UserBundle\Example
+
+services:
+#    ans_user.example:
+#        class: %ans_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    ans_user.user:
+        class: ANS\UserBundle\EventListener\UserSubscriber
+        arguments: ['@security.encoder_factory']
+        tags:
+            - { name: doctrine.event_subscriber }
+            
+    ans_user.token:
+        class: ANS\UserBundle\EventListener\TokenSubscriber
+        arguments: ['@service_container']
+        tags:
+            - { name: doctrine.event_subscriber }
+
+        

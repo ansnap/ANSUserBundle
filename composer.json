@@ -1,0 +1,9 @@
+{
+    "name": "ansnap/ans-user-bundle",
+    "autoload": {
+        "psr-0": {
+            "ANS\\UserBundle": ""
+        }
+    },
+    "target-dir": "ANS/UserBundle"
+}

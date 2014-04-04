@@ -1,0 +1,26 @@
+# Authorization
+login:
+    path:	/login
+    defaults:  { _controller: ANSUserBundle:User:login }
+
+login_check:
+    path:   /login_check
+    # Firewall will automatically catch and process any form submitted to this URL
+
+logout:
+    path:     /logout
+    # Firewall takes care of logout
+  
+register:
+    path:     /register
+    defaults: { _controller: ANSUserBundle:User:register }
+
+restore:
+    path:     /restore
+    defaults: { _controller: ANSUserBundle:User:restore }
+  
+restore_confirm:
+    path:     /restore/{code}
+    defaults: { _controller: ANSUserBundle:User:restoreConfirm }
+    requirements:
+        code: '[a-z0-9]{32}'

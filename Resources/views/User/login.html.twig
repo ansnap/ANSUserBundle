@@ -1,0 +1,21 @@
+{% extends 'ANSUserBundle::layout.html.twig' %}
+
+{% block title %}Вход на сайт{% endblock %}
+
+{% import 'ANSUserBundle:User:login_form.html.twig' as login_form %}
+
+{% block content %}
+
+<h4>Вход на сайт</h4>
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+<p>{{ flashMessage }}</p>
+{% endfor %}
+
+{% if error %}
+<p>{{ error.message|trans }}</p>
+{% endif %}
+
+{{ login_form.view('', last_email) }}
+
+{% endblock %}
