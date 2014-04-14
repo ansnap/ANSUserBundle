@@ -78,7 +78,7 @@ class UserController extends Controller
                 // Send email
                 $message = \Swift_Message::newInstance()
                         ->setSubject('Регистрация на сайте ' . $site_name)
-                        ->setFrom($site_email)
+                        ->setFrom($site_email, $site_name)
                         ->setTo($user->getEmail())
                         ->setBody(
                         $this->renderView('ANSUserBundle:User:mail/register.html.twig', array(
@@ -141,7 +141,7 @@ class UserController extends Controller
 
                 $message = \Swift_Message::newInstance()
                         ->setSubject('Восстановление пароля на сайте ' . $site_name)
-                        ->setFrom($site_email)
+                        ->setFrom($site_email, $site_name)
                         ->setTo($user->getEmail())
                         ->setBody(
                         $this->renderView('ANSUserBundle:User:mail/restore.html.twig', array(
@@ -193,7 +193,7 @@ class UserController extends Controller
         // Send email
         $message = \Swift_Message::newInstance()
                 ->setSubject('Новый пароль для сайта ' . $site_name)
-                ->setFrom($site_email)
+                ->setFrom($site_email, $site_name)
                 ->setTo($user->getEmail())
                 ->setBody(
                 $this->renderView('ANSUserBundle:User:mail/restoreConfirm.html.twig', array(
