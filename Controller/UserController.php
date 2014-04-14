@@ -20,7 +20,7 @@ class UserController extends Controller
     {
         // If not guest -> redirect to home
         if ($this->get('security.context')->isGranted('ROLE_USER')) {
-            return $this->redirect($request->getBaseUrl());
+            return $this->redirect($request->getSchemeAndHttpHost() . $request->getBaseUrl());
         }
 
         $session = $request->getSession();
@@ -48,7 +48,7 @@ class UserController extends Controller
     public function registerAction(Request $request)
     {
         if ($this->get('security.context')->isGranted('ROLE_USER')) {
-            return $this->redirect($request->getBaseUrl());
+            return $this->redirect($request->getSchemeAndHttpHost() . $request->getBaseUrl());
         }
 
         $user_class = $this->container->getParameter('ans_user.user_class');
@@ -110,7 +110,7 @@ class UserController extends Controller
     public function restoreAction(Request $request)
     {
         if ($this->get('security.context')->isGranted('ROLE_USER')) {
-            return $this->redirect($request->getBaseUrl());
+            return $this->redirect($request->getSchemeAndHttpHost() . $request->getBaseUrl());
         }
 
         $form = $this->createForm(new RestoreType());
@@ -172,7 +172,7 @@ class UserController extends Controller
     public function restoreConfirmAction(Request $request, $code)
     {
         if ($this->get('security.context')->isGranted('ROLE_USER')) {
-            return $this->redirect($request->getBaseUrl());
+            return $this->redirect($request->getSchemeAndHttpHost() . $request->getBaseUrl());
         }
 
         $em = $this->getDoctrine()->getManager();
