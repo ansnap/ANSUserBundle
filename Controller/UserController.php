@@ -13,7 +13,7 @@ class UserController extends Controller
 {
 
     /**
-     * Rendering login form and submission
+     * Rendering and submission login form
      * login_check and logout actions - processing automatically
      */
     public function loginAction(Request $request)
